@@ -26,12 +26,16 @@ int sub(vector<int> a , int size)
 }
 
 int main(){
+    //ios_base:sync_with_stdio(false);
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);
     string s;
     while(getline(cin,s)){
         stringstream ss(s);
+        
         vector<int> a;
         int x;
         while(ss>>x) a.pb(x);
-        printf("%d\n",sub(a,a.size()));
+        cout<<sub(a,a.size())<<"\n";
     }
 }
