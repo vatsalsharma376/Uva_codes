@@ -2,6 +2,28 @@
 #define getcx getchar_unlocked
 #define putcx putchar_unlocked
     using namespace std;
+int IN () {
+	bool minus = false;
+	int result = 0;
+	char ch;
+	ch = getcx();
+	while (true) {
+		if (ch == '-') break;
+		if (ch >= '0' && ch <= '9') break;
+		ch = getcx();
+	}
+	if (ch == '-') minus = true; else result = ch-'0';
+	while (true) {
+		ch = getcx();
+		if (ch < '0' || ch > '9') break;
+		result = result*10 + (ch - '0');
+	}
+	if (minus)
+		return -result;
+	else
+		return result;
+}
+
 
 int main()
 {  
@@ -13,23 +35,22 @@ int main()
         int sh,sm,ss,eh,em,es;
         scanf("%d/%d/%d",&sh,&sm,&ss);  //current date
         scanf("%d/%d/%d",&eh,&em,&es);  //birth date
-        int k=ss-es;
-        if(sm<em) --k;
+        int pas=ss-es;
+        if(sm<em) --pas;
         else if(sm==em)
-            if(sh<eh) --k;
+            if(sh<eh) --pas;
         
         
-        if(k<0){
+        if(pas<0){
             //invalid birth can't be after
             cout<<"Invalid birth date\n";
         }
-        else if(k>130){
+        else if(pas>130){
             //invalid again
             cout<<"Check birth date\n";
         }
         else {
-            //invalid again
-            cout<<k<<"\n";
+            cout<<pas<<"\n";
         }
         
     }
