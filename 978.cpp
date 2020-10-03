@@ -5,13 +5,11 @@ using namespace std;
 #define pb(x) push_back(x)
 #define in(x) insert(x)
 #define tt(t) while(t--)
-#define itr iterator it;
-#define new cout<<endl
-#define ritr reverse_iterator it;
+
 int main(){
 	int t;
 	cin>>t;
-	while(t--){
+	tt(t){
 		
 		multiset<int> green,blue;
 		int b,sg,sb;
@@ -19,12 +17,12 @@ int main(){
 		while(sg--){
 			int x;
 			cin>>x;
-			green.insert(x);
+			green.in(x);
 		}
 		while(sb--){
 			int x;
 			cin>>x;
-			blue.insert(x);
+			blue.in(x);
 		}
 		while(!green.empty() and !blue.empty()) {
 			std::vector<int> gl,bl; //those who returned power
@@ -46,7 +44,7 @@ int main(){
 				
 			}
 			for(auto i:gl) green.insert(i);
-				for(auto i:bl) blue.insert(i);
+				for(auto i:bl) blue.in(i);
 		}
 		if(green.empty() && !blue.empty()){
 			cout<<"blue wins\n";
@@ -59,6 +57,6 @@ int main(){
 		cout << *it4 << '\n';
 		}
 		else cout<<"green and blue died\n";
-		if(t!=0) new;
+		
 	}
 }
